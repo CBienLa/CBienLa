@@ -1,37 +1,42 @@
-// emptu page with button to downloas an app on appstore or playstore
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download CBienLa App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+    <title>Open CBienLa Listing</title>
+    <script>
+        // Extract listingId from query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const listingId = urlParams.get('id');
+
+        // App Store & Play Store links
+        const iosAppStore = "https://apps.apple.com/app/idYOUR_APPLE_ID";
+        const androidPlayStore = "https://play.google.com/store/apps/details?id=com.yourcompany.myapp";
+
+        // Detect device
+        const ua = navigator.userAgent || navigator.vendor;
+        if (/android/i.test(ua)) {
+            // Try to open app via intent scheme first
+            window.location.href = `cbienla://listing/${listingId}`;
+            // Fallback to Play Store after short delay
+            setTimeout(() => { window.location.href = androidPlayStore; }, 1500);
+        } else if (/iPad|iPhone|iPod/.test(ua)) {
+            // Try to open app via custom URL scheme
+            window.location.href = `cbienla://listing/${listingId}`;
+            // Fallback to App Store
+            setTimeout(() => { window.location.href = iosAppStore; }, 1500);
+        } else {
+            // Desktop fallback
+            alert(`Listing ID: ${listingId}`);
         }
-        .download-button {
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 18px;
-            color: #fff;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            margin: 10px;
-        }
-        .download-button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    </script>
 </head>
+
 <body>
-    <h1>Download the CBienLa App</h1>
-    <p>Get the best experience by downloading our mobile app!</p>
-    <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="download-button">Download on the App Store</a>
-    <a href="https://play.google.com/store/apps/details?id=com.cbienla.app" class="download-button">Get it on Google Play</a>
-    
+    <p>Redirecting to your app...</p>
+    <p>If not redirected, click the links:</p>
+    <a href="https://play.google.com/store/apps/details?id=com.yourcompany.myapp">Android</a><br>
+    <a href="https://apps.apple.com/app/idYOUR_APPLE_ID">iOS</a>
 </body>
+
 </html>
