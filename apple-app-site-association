@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "89489C74MY.com.cbienla.app",
+        "paths": [ "/listing/*" ]
+      }
+    ]
+  }
+}

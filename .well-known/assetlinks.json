@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "com.cbienla.app",
+      "package_name": "com.cbienla.app",
+      "sha256_cert_fingerprints": [
+        "c2:1c:79:f4:e1:14:b2:35:41:17:fb:2b:27:a8:c0:da:1b:46:e5:21:e1:e7:a2:b1:ea:fd:62:df:01:53:94:31",
+        "d5:c6:6f:14:24:73:72:4e:99:a5:ad:f1:22:17:7a:a6:c3:90:ee:27:d6:77:b7:31:a1:88:cc:08:4c:09:ed:88",
+        "ec:76:e4:88:aa:99:27:09:49:1e:cd:c5:13:88:ab:1a:14:8b:6e:e9:cc:91:7d:04:34:b7:f2:6f:70:b9:d7:43"
+      ]
+    }
+  }
+]
